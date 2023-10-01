@@ -139,6 +139,7 @@ Use existing records to create new records. Use SMOTE to create synthetic data.
 
 - 5.4m rows (5yrs X 1.1m prvdrs)
 - 46 variables
+- 117 lines
 - Corpus 50k fraud + random
 - Train 37,500 / Test 12,500
 - 3 models (xgboost, random forest, log. reg)
