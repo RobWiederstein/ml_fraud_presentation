@@ -1,0 +1,277 @@
+---
+title: "Machine Learning in Medicare Fraud Detection"
+author: ""
+title-slide-attributes:
+  data-background-image: "./img/people_on_grid.jpg"
+  data-background-size: cover
+  data-background-opacity: "1"
+bibliography: mcare_fraud_presentation.bib
+csl: ieee.csl
+nocite: |
+  @*
+format:
+  revealjs:
+    incremental: false
+    theme: simple
+    reference-location: document
+    logo: ""
+    footer: <a href="https://github.com/RobWiederstein/libby/blob/main/LICENSE.md">MIT License 2023</a>
+    slide-number: true
+    controls: true
+    multiplex: false
+    chalkboard: true
+  html:
+    embed-resources: true
+---
+
+```{r libraries, include=FALSE}
+library(readr)
+library(kableExtra)
+#devtools::install_version("knitr", version = "1.42", repos = "http://cran.us.r-project.org")
+library(DT)
+```
+
+# Findings
+
+Applying xgboost to classify Part B Medicare providers as fraud/no fraud yielded similar results to those published in a recent academic journal article. (.95+ AUC score). The method's benefits include small file sizes, simple implementation, and high predictability.
+
+# Outline
+
+- Basics
+- Article
+- Project
+- Findings
+- Implications
+- Directions?
+
+# Basics
+
+- Classification  vs. Regression
+- Identifiers, Predictors, & Outcomes
+- Train --> Test --> Predict
+
+## ROC Curve
+
+![Wikipedia](./img/Roc_curve.png)
+
+:::{.notes}
+AUC - area under the curve metric is between .5 and 1. The closer to 1, the more effective the classifier.
+:::
+
+## Confusion Matrix
+
+![](./img/confusion_matrix.png)
+
+
+:::{.notes}
+At the heart of classification metrics is the confusion matrix. The confusion matrix is a table showing the number of correct and incorrect predictions categorized by type of response.
+:::
+ 
+## Classification Performance Metrics[@bruce2017]
+
+- Accuracy - The percent (or proportion) of cases classified correctly.
+- Sensitivity - The percent of all 1s that are correctly classified as 1s.
+- Specificity - The percent of all 0s that are correctly classfied as 0s.
+- Precision - The percent of predicted 1s that are actually 1s.
+
+## Class Imbalance
+
+- Medicare Fraud 6+ per 10k
+- Undersampling or Downsample
+- Oversampling or Up/Down Weighting
+- Data generation
+
+
+:::{.notes}
+
+In the case of Medicare fraud, we're dealing with highly imbalanced data. Few people are ever caught.  A round number commonly used is 6/10,000.
+
+"The basic idea in undersampling is that the data for the dominant class has many redundant records."
+
+"In this case, instead of downsampling the dominant case, you should oversample (upsample) the rarer class by drawing additional rows with replacement (bootstrapping).
+
+Use existing records to create new records. Use SMOTE to create synthetic data.
+:::
+
+
+# Article
+
+## Flow
+
+![](./img/workflow_medicare_fraud.png)
+
+## Claims Data
+
+![[Part B Claims](https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider-and-service)](./img/cms_ptb_claims_by_prvdr_hcpcs.png){width=600}
+
+## Provider Data
+
+![[Medicare Providers](https://data.cms.gov/provider-summary-by-type-of-service/medicare-physician-other-practitioners/medicare-physician-other-practitioners-by-provider)](./img/cms_prvdr_summary.png){width=600}
+
+## LEIE
+
+![[WaybackMachine](https://web.archive.org/web/20230000000000*/https://www.oig.hhs.gov/exclusions/exclusions_list.asp)](./img/wayback_leie_downloads.png)
+
+## AUC Scores
+
+![](./img/medicare_fraud_01.png)
+
+## [xgboost](https://xgboost.readthedocs.io/en/stable/index.html)
+
+- available in all major computer languages
+- stochastic gradient boosting is the most general and widely used
+- "can lead to unstable models due to overfitting."
+- "daunting array of hyper parameters"
+- high accuracy, poor interpretability
+- winning solution for Higgs Machine Learning Challenge
+
+## [Random Forest](https://www.jstatsoft.org/article/view/v077i01)
+
+- Original implementation 2004
+
+## Top 20 Model Features
+
+![](./img/top_20_features_shap_johnson.png)
+
+
+
+# Project
+
+- 5.4m rows (5yrs X 1.1m prvdrs)
+- 46 variables
+- Corpus 50k fraud + random
+- Train 37,500 / Test 12,500
+- 3 models (xgboost, random forest, log. reg)
+- Random undersampling 4:1
+- Tuned
+
+
+## Feature Creation
+
+```r
+summarize(across(where(is.double),
+                             list(min = ~min(.x, na.rm = T),
+                                  mean = ~mean(.x, na.rm = T),
+                                  med = ~median(.x, na.rm = T),
+                                  max = ~max(.x, na.rm = T),
+                                  sum = ~sum(.x, na.rm = T),
+                                  sd = ~ifelse(is.na(sd(.x, na.rm = T)),
+                                               0, sd(.x, na.rm = T)))),
+                      .groups = "drop")
+```
+
+## Merge with LEIE
+
+```r
+# join ptb and leie ----
+ptb_orig_agg <- left_join(
+    ptb_orig_agg_all_years,
+    leie,
+    by = c("rndrng_npi"),
+    relationship = "many-to-many") |>
+    mutate(fraud = ifelse(is.na(fraud), 0, 1)) |>
+    mutate(fraud = factor(fraud, labels = c("F", "T")))
+```
+
+## XGBoost Tuning Parameters
+
+![](./img/xgboost_tuning_parameters.jpg)
+
+## VIP
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](./img/xgb_vip_plot.jpg)
+:::
+
+::: {.column width="50%"}
+![](./img/rf_vip_plot.jpg)
+:::
+
+::::
+
+
+
+## XGBoost Confusion Matrix
+
+:::: {.columns}
+::: {.column width="50%"}
+![](./img/xgb_conf_matrix.jpg)
+:::
+
+::: {.column width="50%"}
+- AUC = .981
+- Accuracy = .971
+:::
+
+::::
+
+## Random Forest Confusion Matrix
+
+:::: {.columns}
+
+:::{.column width="50%"}
+
+![](./img/rf_conf_matrix.jpg)
+:::
+
+::: {.column width="50%"}
+
+- AUC = .991
+- Accuracy = .988
+
+:::
+
+::::
+
+
+## Log. Reg Confusion Matrix
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](./img/lr_conf_matrix.jpg){width=400}
+
+:::
+
+::: {.column width="50%"}
+- AUC = .937
+- Accuracy = .826
+:::
+
+::::
+
+## ROC curve
+
+![](./img/compare_model_results_w_gndr.jpg){.r-stretch}
+
+
+## Fairness
+
+To help ensure algorithm fairness, some advocate three constraints: "(1) no use of legally protected features, such as race, ethnicity, and gender; (2) equal rates of “positive” decisions across groups; and (3) equal error rates across groups." While appealing, the suggestions "often worsen outcomes for individuals in marginalized groups, and can even leave all groups worse off."[@chohlas-wood2023]
+
+## Application
+
+<iframe src="https://rob-wiederstein.shinyapps.io/medicareDash/" height=600 width = 1000 title="description"></iframe>
+[medicare providers](https://rob-wiederstein.shinyapps.io/medicareDash/)
+
+# Value Adds
+
+- timeliness (monthly?)
+- accuracy (MED for labels)
+
+
+
+# Verification
+
+![[AWS Sagemaker](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html)](./img/amazon_sagemaker.png)
+
+:::{.notes}
+Amazon SageMaker is a fully managed machine learning service. With SageMaker, data scientists and developers can quickly and easily build and train machine learning models.  See aws' [website](https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html).
+:::
+
+# Bibliography
+
+::: {#refs}
+:::
