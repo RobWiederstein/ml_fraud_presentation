@@ -1,5 +1,2 @@
 project:
-  title: "ml_fraud_presentation"
-
-
-
+  output-dir: docs

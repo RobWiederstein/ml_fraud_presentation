@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="ml_fraud_presentation_files/libs/clipboard/clipboard.min.js"></script>
-<script src="ml_fraud_presentation_files/libs/quarto-html/tabby.min.js"></script>
-<script src="ml_fraud_presentation_files/libs/quarto-html/popper.min.js"></script>
-<script src="ml_fraud_presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="ml_fraud_presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="ml_fraud_presentation_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="ml_fraud_presentation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.269">
 
   <meta name="author" content="">
@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="ml_fraud_presentation_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="ml_fraud_presentation_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -112,13 +112,13 @@
       margin-left: 2em;
     }
   </style>
-  <link rel="stylesheet" href="ml_fraud_presentation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link href="ml_fraud_presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="ml_fraud_presentation_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -510,8 +510,8 @@
       }</style></aside>
 </section></section>
 <section>
-<section id="article" class="title-slide slide level1 center">
-<h1>Article</h1>
+<section id="articlejohnson2023" class="title-slide slide level1 center">
+<h1>Article<span class="citation" data-cites="johnson2023"><a href="#/bibliography" role="doc-biblioref" onclick="">[2]</a></span></h1>
 
 </section>
 <section id="flow" class="slide level2">
@@ -561,6 +561,7 @@
 <ul>
 <li>5.4m rows (5yrs X 1.1m prvdrs)</li>
 <li>46 variables</li>
+<li>117 lines</li>
 <li>Corpus 50k fraud + random</li>
 <li>Train 37,500 / Test 12,500</li>
 <li>3 models (xgboost, random forest, log. reg)</li>
@@ -650,7 +651,7 @@
 </section>
 <section id="fairness" class="slide level2">
 <h2>Fairness</h2>
-<p>To help ensure algorithm fairness, some advocate three constraints: “(1) no use of legally protected features, such as race, ethnicity, and gender; (2) equal rates of “positive” decisions across groups; and (3) equal error rates across groups.” While appealing, the suggestions “often worsen outcomes for individuals in marginalized groups, and can even leave all groups worse off.”<span class="citation" data-cites="chohlas-wood2023"><a href="#/bibliography" role="doc-biblioref" onclick="">[2]</a></span></p>
+<p>To help ensure algorithm fairness, some advocate three constraints: “(1) no use of legally protected features, such as race, ethnicity, and gender; (2) equal rates of “positive” decisions across groups; and (3) equal error rates across groups.” While appealing, the suggestions “often worsen outcomes for individuals in marginalized groups, and can even leave all groups worse off.”<span class="citation" data-cites="chohlas-wood2023"><a href="#/bibliography" role="doc-biblioref" onclick="">[3]</a></span></p>
 </section>
 <section id="application" class="slide level2">
 <h2>Application</h2>
@@ -690,14 +691,14 @@
 <div id="ref-bruce2017" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">P. Bruce and A. Bruce, <em>Practical <span>Statistics</span> for <span>Data Scientists</span>: 50 <span>Essential Concepts</span></em>. <span>"O’Reilly Media, Inc."</span>, 2017.</div>
 </div>
+<div id="ref-johnson2023" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">J. M. Johnson and T. M. Khoshgoftaar, <span>“Data-<span>Centric AI</span> for <span>Healthcare Fraud Detection</span>,”</span> <em>SN Computer Science</em>, vol. 4, no. 4, p. 389, May 2023, doi: <a href="https://doi.org/10.1007/s42979-023-01809-x">10.1007/s42979-023-01809-x</a>.</div>
+</div>
 <div id="ref-chohlas-wood2023" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">A. Chohlas-Wood, M. Coots, S. Goel, and J. Nyarko, <span>“Designing equitable algorithms,”</span> <em>Nature Computational Science</em>, vol. 3, no. 7, pp. 601–610, Jul. 2023, doi: <a href="https://doi.org/10.1038/s43588-023-00485-4">10.1038/s43588-023-00485-4</a>.</div>
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">A. Chohlas-Wood, M. Coots, S. Goel, and J. Nyarko, <span>“Designing equitable algorithms,”</span> <em>Nature Computational Science</em>, vol. 3, no. 7, pp. 601–610, Jul. 2023, doi: <a href="https://doi.org/10.1038/s43588-023-00485-4">10.1038/s43588-023-00485-4</a>.</div>
 </div>
 <div id="ref-chen2016" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">T. Chen and C. Guestrin, <span>“<span>XGBoost</span>: <span>A Scalable Tree Boosting System</span>,”</span> in <em>Proceedings of the 22nd <span>ACM SIGKDD International Conference</span> on <span>Knowledge Discovery</span> and <span>Data Mining</span></em>, in <span>KDD</span> ’16. <span>New York, NY, USA</span>: <span>Association for Computing Machinery</span>, Aug. 2016, pp. 785–794. doi: <a href="https://doi.org/10.1145/2939672.2939785">10.1145/2939672.2939785</a>.</div>
-</div>
-<div id="ref-johnson2023" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">J. M. Johnson and T. M. Khoshgoftaar, <span>“Data-<span>Centric AI</span> for <span>Healthcare Fraud Detection</span>,”</span> <em>SN Computer Science</em>, vol. 4, no. 4, p. 389, May 2023, doi: <a href="https://doi.org/10.1007/s42979-023-01809-x">10.1007/s42979-023-01809-x</a>.</div>
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">T. Chen and C. Guestrin, <span>“<span>XGBoost</span>: <span>A Scalable Tree Boosting System</span>,”</span> in <em>Proceedings of the 22nd <span>ACM SIGKDD International Conference</span> on <span>Knowledge Discovery</span> and <span>Data Mining</span></em>, in <span>KDD</span> ’16. <span>New York, NY, USA</span>: <span>Association for Computing Machinery</span>, Aug. 2016, pp. 785–794. doi: <a href="https://doi.org/10.1145/2939672.2939785">10.1145/2939672.2939785</a>.</div>
 </div>
 <div id="ref-starr2014" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[5] </div><div class="csl-right-inline">S. B. Starr, <span>“Evidence-<span>Based Sentencing</span> and the <span>Scientific Rationalization</span> of <span>Discrimination</span>,”</span> <em>Stanford Law Review</em>, vol. 66, no. 4, pp. 803–872, 2014, Accessed: Sep. 30, 2023. [Online]. Available: <a href="https://www.jstor.org/stable/24246717">https://www.jstor.org/stable/24246717</a></div>
@@ -720,20 +721,20 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="ml_fraud_presentation_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

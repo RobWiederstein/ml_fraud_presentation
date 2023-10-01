@@ -94,7 +94,7 @@ Use existing records to create new records. Use SMOTE to create synthetic data.
 :::
 
 
-# Article
+# Article[@johnson2023]
 
 ## Flow
 
