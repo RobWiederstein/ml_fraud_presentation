@@ -167,6 +167,9 @@ summarize(across(where(is.double),
 ## Merge with LEIE
 
 ```r
+# unitemized statutes
+filter(excltype %in% c("1128a1", "1128a2", "1128a3", "1128b4", "1128b7"))
+
 # join ptb and leie ----
 ptb_orig_agg <- left_join(
     ptb_orig_agg_all_years,
