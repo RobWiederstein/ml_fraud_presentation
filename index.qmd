@@ -127,7 +127,10 @@ Use existing records to create new records. Use SMOTE to create synthetic data.
 
 ## [Random Forest](https://www.jstatsoft.org/article/view/v077i01)
 
-- Original implementation 2004
+- Original conception in 2004
+- In 2014, RF took 3 of 5 top spots.
+- In 2017, ranger package released in R.
+- In 2017, ranger was fastest implementation in R.
 
 ## Top 20 Model Features
 
@@ -139,12 +142,12 @@ Use existing records to create new records. Use SMOTE to create synthetic data.
 
 - 5.4m rows (5yrs X 1.1m prvdrs)
 - 46 variables
-- 117 lines
+- 117 lines for wrangle
 - Corpus 50k fraud + random
 - Train 37,500 / Test 12,500
 - 3 models (xgboost, random forest, log. reg)
 - Random undersampling 4:1
-- Tuned
+- Hyperparameters Tuned
 
 
 ## Feature Creation
