@@ -548,7 +548,10 @@
 <section id="random-forest" class="slide level2">
 <h2><a href="https://www.jstatsoft.org/article/view/v077i01">Random Forest</a></h2>
 <ul>
-<li>Original implementation 2004</li>
+<li>Original conception in 2004</li>
+<li>In 2014, RF took 3 of 5 top spots.</li>
+<li>In 2017, ranger package released in R.</li>
+<li>In 2017, ranger was fastest implementation in R.</li>
 </ul>
 </section>
 <section id="top-20-model-features" class="slide level2">
@@ -561,12 +564,12 @@
 <ul>
 <li>5.4m rows (5yrs X 1.1m prvdrs)</li>
 <li>46 variables</li>
-<li>117 lines</li>
+<li>117 lines for wrangle</li>
 <li>Corpus 50k fraud + random</li>
 <li>Train 37,500 / Test 12,500</li>
 <li>3 models (xgboost, random forest, log. reg)</li>
 <li>Random undersampling 4:1</li>
-<li>Tuned</li>
+<li>Hyperparameters Tuned</li>
 </ul>
 </section>
 <section id="feature-creation" class="slide level2">
@@ -700,17 +703,20 @@
 <div id="ref-chen2016" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">[4] </div><div class="csl-right-inline">T. Chen and C. Guestrin, <span>“<span>XGBoost</span>: <span>A Scalable Tree Boosting System</span>,”</span> in <em>Proceedings of the 22nd <span>ACM SIGKDD International Conference</span> on <span>Knowledge Discovery</span> and <span>Data Mining</span></em>, in <span>KDD</span> ’16. <span>New York, NY, USA</span>: <span>Association for Computing Machinery</span>, Aug. 2016, pp. 785–794. doi: <a href="https://doi.org/10.1145/2939672.2939785">10.1145/2939672.2939785</a>.</div>
 </div>
+<div id="ref-fernandez-delgado2014" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">M. Fernández-Delgado, E. Cernadas, S. Barro, and D. Amorim, <span>“Do we need hundreds of classifiers to solve real world classification problems?”</span> <em>The Journal of Machine Learning Research</em>, vol. 15, no. 1, pp. 3133–3181, Jan. 2014.</div>
+</div>
 <div id="ref-starr2014" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[5] </div><div class="csl-right-inline">S. B. Starr, <span>“Evidence-<span>Based Sentencing</span> and the <span>Scientific Rationalization</span> of <span>Discrimination</span>,”</span> <em>Stanford Law Review</em>, vol. 66, no. 4, pp. 803–872, 2014, Accessed: Sep. 30, 2023. [Online]. Available: <a href="https://www.jstor.org/stable/24246717">https://www.jstor.org/stable/24246717</a></div>
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">S. B. Starr, <span>“Evidence-<span>Based Sentencing</span> and the <span>Scientific Rationalization</span> of <span>Discrimination</span>,”</span> <em>Stanford Law Review</em>, vol. 66, no. 4, pp. 803–872, 2014, Accessed: Sep. 30, 2023. [Online]. Available: <a href="https://www.jstor.org/stable/24246717">https://www.jstor.org/stable/24246717</a></div>
 </div>
 <div id="ref-tay2023" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[6] </div><div class="csl-right-inline">J. K. Tay, B. Narasimhan, and T. Hastie, <span>“Elastic <span>Net Regularization Paths</span> for <span>All Generalized Linear Models</span>,”</span> <em>Journal of Statistical Software</em>, vol. 106, pp. 1–31, Mar. 2023, doi: <a href="https://doi.org/10.18637/jss.v106.i01">10.18637/jss.v106.i01</a>.</div>
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">J. K. Tay, B. Narasimhan, and T. Hastie, <span>“Elastic <span>Net Regularization Paths</span> for <span>All Generalized Linear Models</span>,”</span> <em>Journal of Statistical Software</em>, vol. 106, pp. 1–31, Mar. 2023, doi: <a href="https://doi.org/10.18637/jss.v106.i01">10.18637/jss.v106.i01</a>.</div>
 </div>
 <div id="ref-wright2017" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[7] </div><div class="csl-right-inline">M. N. Wright and A. Ziegler, <span>“Ranger: <span>A Fast Implementation</span> of <span>Random Forests</span> for <span>High Dimensional Data</span> in <span>C</span>++ and <span>R</span>,”</span> <em>Journal of Statistical Software</em>, vol. 77, pp. 1–17, Mar. 2017, doi: <a href="https://doi.org/10.18637/jss.v077.i01">10.18637/jss.v077.i01</a>.</div>
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">M. N. Wright and A. Ziegler, <span>“Ranger: <span>A Fast Implementation</span> of <span>Random Forests</span> for <span>High Dimensional Data</span> in <span>C</span>++ and <span>R</span>,”</span> <em>Journal of Statistical Software</em>, vol. 77, pp. 1–17, Mar. 2017, doi: <a href="https://doi.org/10.18637/jss.v077.i01">10.18637/jss.v077.i01</a>.</div>
 </div>
 <div id="ref-yang2020" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">[8] </div><div class="csl-right-inline">C. Yang and W. Dobbie, <span>“Equal <span>Protection Under Algorithms</span>: <span>A New Statistical</span> and <span>Legal Framework</span>,”</span> <em>Michigan Law Review</em>, vol. 119, no. 2, pp. 291–396, Nov. 2020, doi: <a href="https://doi.org/10.36644/mlr.119.2.equal">10.36644/mlr.119.2.equal</a>.</div>
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">C. Yang and W. Dobbie, <span>“Equal <span>Protection Under Algorithms</span>: <span>A New Statistical</span> and <span>Legal Framework</span>,”</span> <em>Michigan Law Review</em>, vol. 119, no. 2, pp. 291–396, Nov. 2020, doi: <a href="https://doi.org/10.36644/mlr.119.2.equal">10.36644/mlr.119.2.equal</a>.</div>
 </div>
 </div>
 <div class="footer footer-default">
